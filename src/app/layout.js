@@ -4,11 +4,10 @@ import "./styles.css";
 import { createTheme, NextUIProvider, CssBaseline } from '@nextui-org/react';
 import React from 'react';
 
-import { Inter, Kanit, Noto_Sans_Thai } from 'next/font/google'
+import { Inter, Kanit } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+// const inter = Inter({ subsets: ['latin'] })
 const kanit = Kanit({ weight: '400', subsets: ['latin'] })
-const noto_Sans_Thai = Kanit({ weight: '400', subsets: ['latin'] })
 
 export const metadata = {
   title: 'Rama 8',
