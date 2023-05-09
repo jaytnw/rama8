@@ -9,10 +9,10 @@ import { Inter, Kanit } from 'next/font/google'
 // const inter = Inter({ subsets: ['latin'] })
 const kanit = Kanit({ weight: '400', subsets: ['latin'] })
 
-export const metadata = {
-  title: 'Rama 8',
-  description: 'Rama 8',
-}
+// export const metadata = {
+//   title: 'Rama 8',
+//   description: 'Rama 8',
+// }
 
 const theme = createTheme({
   type: "light", // it could be "light" or "dark"
@@ -51,7 +51,9 @@ const myLightTheme = createTheme({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head>{CssBaseline.flush()}
+      <head>
+        {CssBaseline.flush()}
+        <title>Rama8</title>
       
       
       </head>
