@@ -53,9 +53,26 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         {CssBaseline.flush()}
+
         <title>Rama8</title>
-      
-      
+        <meta name="title" content="Rama8" />
+        <meta name="description" content="เขียนสะพาน" />
+
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://rama8.jaytnw.com/" />
+        <meta property="og:title" content="Rama8" />
+        <meta property="og:description" content="เขียนสะพาน" />
+        <meta property="og:image" content="https://rama8.jaytnw.com/web.jpg" />
+
+
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://rama8.jaytnw.com/" />
+        <meta property="twitter:title" content="Rama8" />
+        <meta property="twitter:description" content="เขียนสะพาน" />
+        <meta property="twitter:image" content="https://rama8.jaytnw.com/web.jpg" />
+
+
       </head>
       <body className={kanit.className}>
         <NextUIProvider theme={myLightTheme}>
