@@ -13,8 +13,9 @@ import useClickOutside from "./useClickOutside";
 import downloadjs from 'downloadjs';
 
 
-import { Inter, Kanit } from 'next/font/google'
+import { Inter, Kanit,Noto_Sans_Thai } from 'next/font/google'
 const kanit = Kanit({ weight: '400', subsets: ['latin'] })
+const noto_Sans_Thai = Noto_Sans_Thai({ weight: '400', subsets: ['latin'] })
 
 export default function Home() {
 
@@ -63,11 +64,11 @@ export default function Home() {
         scale: 1,
         dpi: 300,
         backgroundColor: "rgba(0,0,0,0)",
-        onclone: (clonedDoc) => {
-          clonedDoc.getElementById("image-container").style.display = "block";
-          // clonedDoc.getElementById("frontCardLoad").style.display = "block";
-          // Visibility set to visible using `onclone` method
-        },
+        // onclone: (clonedDoc) => {
+        //   // clonedDoc.getElementById("image-container").style.display = "block";
+        //   // clonedDoc.getElementById("frontCardLoad").style.display = "block";
+        //   // Visibility set to visible using `onclone` method
+        // },
 
       })
 

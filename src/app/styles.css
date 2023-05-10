@@ -7,12 +7,16 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    /* text-orientation: upright;
-    writing-mode: vertical-lr; */
 
-    margin: 0 auto 2em;
-    width: .8em;
+
+    margin: 0 auto 2em; 
+    width: 1.2%;
     word-wrap: break-word;
+
+    /* writing-mode: vertical-rl;
+    text-orientation: upright;
+    letter-spacing: .1em;
+    white-space: nowrap; */
 
     /* transform: translate(-50%, -50%); */
     /* color: white;

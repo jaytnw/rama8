@@ -5,11 +5,11 @@ import { createTheme, NextUIProvider, CssBaseline } from '@nextui-org/react';
 import React from 'react';
 import { Analytics } from '@vercel/analytics/react';
 
-import { Inter, Kanit } from 'next/font/google'
+import { Noto_Sans_Thai, Kanit } from 'next/font/google'
 
 // const inter = Inter({ subsets: ['latin'] })
 const kanit = Kanit({ weight: '400', subsets: ['latin'] })
-
+const noto_Sans_Thai = Noto_Sans_Thai({ weight: '400', subsets: ['latin'] })
 // export const metadata = {
 //   title: 'Rama 8',
 //   description: 'Rama 8',
