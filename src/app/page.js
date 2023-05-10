@@ -110,7 +110,7 @@ export default function Home() {
                   <div
                     className="swatch"
                     style={{ backgroundColor: color }}
-                    onClick={() => toggle(true)}
+                    onPress={() => toggle(true)}
                   />
 
                   {isOpen && (
