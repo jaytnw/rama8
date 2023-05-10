@@ -10,7 +10,7 @@ import { Grid, Input, Text, Spacer, Button } from "@nextui-org/react";
 
 import { HexColorPicker } from "react-colorful";
 import useClickOutside from "./useClickOutside";
-
+import downloadjs from 'downloadjs';
 
 
 import { Inter, Kanit } from 'next/font/google'
@@ -44,16 +44,40 @@ export default function Home() {
     setText(e.target.value);
   };
 
-  const handleImageDownload = () => {
+  // const handleImageDownload = () => {
 
-    html2canvas(imageRef.current).then((canvas) => {
-      const link = document.createElement('a');
-      link.download = 'adsRama8.png';
-      link.href = canvas.toDataURL();
-      link.click();
-    });
+  //   html2canvas(imageRef.current).then((canvas) => {
+  //     const link = document.createElement('a');
+  //     link.download = 'adsRama8.png';
+  //     link.href = canvas.toDataURL();
+  //     link.click();
+  //   });
+  // };
+
+
+  const handleImageDownload = async (type) => {
+    const canvas = await html2canvas(document.getElementById("image-container"),
+      {
+        letterRendering: 1,
+        allowTaint: false,
+        scale: 1,
+        dpi: 300,
+        backgroundColor: "rgba(0,0,0,0)",
+        onclone: (clonedDoc) => {
+          clonedDoc.getElementById("image-container").style.display = "block";
+          // clonedDoc.getElementById("frontCardLoad").style.display = "block";
+          // Visibility set to visible using `onclone` method
+        },
+
+      })
+
+    const dataURL = canvas.toDataURL('image/png');
+
+    downloadjs(dataURL, 'adsRama8.png', 'image/png');
+
+
+
   };
-
 
 
 
@@ -156,7 +180,7 @@ export default function Home() {
               // size="auto"
               onClick={handleImageDownload}
               css={{
-                zIndex:1,
+                zIndex: 1,
                 background: '$white',
                 fontWeight: '$semibold',
                 boxShadow: '$md',
@@ -209,7 +233,7 @@ export default function Home() {
         />
       </Grid.Container> */}
       <Grid lg={6} >
-        <div ref={imageRef} className="image-container" >
+        <div ref={imageRef} className="image-container" id="image-container">
           <img src="/rama8-img.png" height={"100%"} />
 
 
