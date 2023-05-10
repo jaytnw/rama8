@@ -69,7 +69,7 @@ export default function Home() {
         {/* <Card css={{ mw: "800px",mh: }}> */}
         <Grid.Container justify="center" alignItems="center" >
           <Grid.Container justify="center" alignItems="center">
-            <Text size={30} className={kanit.className}>เขียนสะพาน</Text>
+            <Text size={30} className={kanit.className}>ยิงเลเซอร์สะพานพระราม 8</Text>
           </Grid.Container>
           <Spacer y={1} />
           <Grid.Container>

@@ -3,6 +3,7 @@
 import "./styles.css";
 import { createTheme, NextUIProvider, CssBaseline } from '@nextui-org/react';
 import React from 'react';
+import { Analytics } from '@vercel/analytics/react';
 
 import { Inter, Kanit } from 'next/font/google'
 
@@ -77,6 +78,7 @@ export default function RootLayout({ children }) {
       <body className={kanit.className}>
         <NextUIProvider theme={myLightTheme}>
           {children}
+          <Analytics />
         </NextUIProvider>
       </body>
     </html>
