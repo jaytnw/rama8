@@ -31,7 +31,7 @@ const myLightTheme = createTheme({
   theme: {
     colors: {
       // brand colors
-      background: '#171E31',
+      background: '#1c1c1c',
       text: 'white',
       bgColor: 'white',
       // bgColorGradient: 'linear-gradient(112deg, $blue100 -25%, $pink500 -10%, $purple500 80%)',
