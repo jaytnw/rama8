@@ -2,20 +2,49 @@
 import React, { useState, useRef, useCallback, useEffect } from "react";
 
 
-// import Image from 'next/image';
+import Image from 'next/image';
 import html2canvas from 'html2canvas';
 import Slider, { Range } from 'rc-slider';
 import 'rc-slider/assets/index.css';
-import { Grid, Input, Text, Spacer, Button } from "@nextui-org/react";
+import { Grid, Input, Text, Spacer, Button, Modal, Container } from "@nextui-org/react";
 
 import { HexColorPicker } from "react-colorful";
 import useClickOutside from "./useClickOutside";
 import downloadjs from 'downloadjs';
 
 
-import { Inter, Kanit,Noto_Sans_Thai } from 'next/font/google'
+import { Inter, Kanit, Noto_Sans_Thai } from 'next/font/google'
 const kanit = Kanit({ weight: '400', subsets: ['latin'] })
-const noto_Sans_Thai = Noto_Sans_Thai({ weight: '400', subsets: ['latin'] })
+const noto_sans_thai = Noto_Sans_Thai({ weight: '400', subsets: ['latin'] })
+
+const HeartIcon = ({
+  fill = 'currentColor',
+  filled,
+  size,
+  height,
+  width,
+  label,
+  ...props
+}) => {
+  return (
+    <svg
+      width={size || width || 24}
+      height={size || height || 24}
+      viewBox="0 0 24 24"
+      fill={filled ? fill : 'none'}
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M12.62 20.81c-.34.12-.9.12-1.24 0C8.48 19.82 2 15.69 2 8.69 2 5.6 4.49 3.1 7.56 3.1c1.82 0 3.43.88 4.44 2.24a5.53 5.53 0 0 1 4.44-2.24C19.51 3.1 22 5.6 22 8.69c0 7-6.48 11.13-9.38 12.12Z"
+        stroke={fill}
+        strokeWidth={1.5}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};
 
 export default function Home() {
 
@@ -54,6 +83,14 @@ export default function Home() {
   //     link.click();
   //   });
   // };
+
+  const [visibleDonate, setVisibleDonate] = useState(false);
+  const handlerDonate = () => setVisibleDonate(true);
+
+  const closeHandlerDonate = () => {
+    setVisibleDonate(false);
+    // console.log("closed");
+  };
 
 
   const handleImageDownload = async (type) => {
@@ -215,6 +252,21 @@ export default function Home() {
             </Button>
           </Grid.Container>
 
+          <Grid.Container justify="center" css={{mt:10}} >
+
+            <Button size="sm" flat bordered onPress={handlerDonate} color="$bgColor" css={{
+              color: "$orange",
+              backgroundColor: "$white"
+            }}>
+              <HeartIcon style={{ display: "block" }} fill="red" filled />
+
+              <Text className={noto_sans_thai.className} css={{ pt: 2 }} size={16} color="$blue" >
+                สนับสนุน
+              </Text>
+
+            </Button>
+          </Grid.Container>
+
         </Grid.Container>
 
 
@@ -258,8 +310,66 @@ export default function Home() {
       |
       {yAxis} */}
 
+      <Modal
+        closeButton
+        open={visibleDonate}
+        onClose={closeHandlerDonate}
+
+      >
+
+        <Modal.Header>
+          <Grid.Container className="modalDonate" >
+
+            <Text b h1 size={20} css={{ pt: 8, pr: 10 }} className={noto_sans_thai.className} >
+              สนับสนุนค่าเซิฟเวอร์
+
+            </Text>
+
+            {/* <Spacer y={1} /> */}
+
+
+
+            <HeartIcon style={{ display: "block" }} fill="red" filled />
+
+          </Grid.Container>
+
+
+        </Modal.Header>
+        <Modal.Body  >
+          <Grid.Container className="modalDonate" >
+
+            <Image
+
+              src="/promptpay.png"
+              alt="PromptPay"
+              width={300}
+              height={300}
+              style={{ display: "block", margin: "auto" }}
+            />
+
+            <Text css={{ mt: 20 }} size={18} className={noto_sans_thai.className} color="#fff"  >
+              ใช้แอปธนาคารสแกน QR code ได้เลย!
+            </Text>
+
+          </Grid.Container>
+
+
+
+
+        </Modal.Body>
+        <Modal.Footer>
+          <Button auto flat color="error" className={noto_sans_thai.className} onPress={closeHandlerDonate}>
+            ปิด
+          </Button>
+        </Modal.Footer>
+
+      </Modal>
+
 
     </Grid.Container>
+
+
+
   )
 }
 
