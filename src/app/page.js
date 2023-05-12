@@ -137,7 +137,7 @@ export default function Home() {
           <Grid.Container>
             <Input
               type="text"
-              value={text}
+              initialValue={text}
               underlined
               clearable
               onChange={handleTextChange}
