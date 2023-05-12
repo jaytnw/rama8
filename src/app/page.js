@@ -74,6 +74,7 @@ export default function Home() {
     setText(e.target.value);
   };
 
+  //-------------- it's not work with chrome mobile -----------
   // const handleImageDownload = () => {
 
   //   html2canvas(imageRef.current).then((canvas) => {
@@ -93,7 +94,7 @@ export default function Home() {
   };
 
 
-  const handleImageDownload = async (type) => {
+  const handleImageDownload = async () => {
     const canvas = await html2canvas(document.getElementById("image-container"),
       {
         letterRendering: 1,
@@ -128,7 +129,6 @@ export default function Home() {
 
       <Grid lg={6}>
         <Spacer y={1} />
-        {/* <Card css={{ mw: "800px",mh: }}> */}
         <Grid.Container justify="center" alignItems="center" >
           <Grid.Container justify="center" alignItems="center">
             <Text size={30} className={kanit.className}>ยิงเลเซอร์สะพานพระราม 8</Text>
@@ -206,9 +206,6 @@ export default function Home() {
           </Grid.Container>
 
           <Grid.Container alignItems="center" justify="center">
-            {/* <Button color="success" auto onPress={handleImageDownload}>
-              Download
-            </Button> */}
 
             <Button
               auto
@@ -270,32 +267,19 @@ export default function Home() {
         </Grid.Container>
 
 
-        {/* </Card> */}
+
         <Spacer y={.5} />
       </Grid>
 
-      {/* <Grid.Container css={{width:"50%", height:""}}>
-        <Image
-          id="image-container"
-          src="/rama8-img.png"
-          fill
-          // width={764}
-          // height={1019}
-          alt="rama8-img"
 
-        />
-      </Grid.Container> */}
       <Grid lg={6} >
         <div ref={imageRef} className="image-container" id="image-container">
-          <img src="/rama8-img.png" height={"100%"} />
+          <img src="/rama8-img.png" height="100%" width="100%" />
 
 
           <div className="overlay neonText"
             style={{
               transform: `translate(${xAxis}px , ${yAxis}px)`,
-              // writingMode: "vertical-rl",
-              // textOrientation: "upright",
-              // whiteSpace: 'nowrap',
               textShadow: `0 0 5px ${colorLight}, 0 0 15px ${colorLight}, 0 0 20px ${colorLight}, 0 0 40px ${colorLight}, 0 0 60px ${colorLight}, 0 0 10px ${colorLight}, 0 0 98px ${colorLight}`,
               color: color,
               fontSize: fontSize
@@ -322,24 +306,17 @@ export default function Home() {
 
             <Text b h1 size={20} css={{ pt: 8, pr: 10 }} className={noto_sans_thai.className} >
               สนับสนุนค่าเซิฟเวอร์
-
             </Text>
-
-            {/* <Spacer y={1} /> */}
-
-
 
             <HeartIcon style={{ display: "block" }} fill="red" filled />
 
           </Grid.Container>
-
 
         </Modal.Header>
         <Modal.Body  >
           <Grid.Container className="modalDonate" >
 
             <Image
-
               src="/promptpay.png"
               alt="PromptPay"
               width={300}
@@ -353,9 +330,6 @@ export default function Home() {
 
           </Grid.Container>
 
-
-
-
         </Modal.Body>
         <Modal.Footer>
           <Button auto flat color="error" className={noto_sans_thai.className} onPress={closeHandlerDonate}>
@@ -365,11 +339,7 @@ export default function Home() {
 
       </Modal>
 
-
     </Grid.Container>
-
-
-
   )
 }
 

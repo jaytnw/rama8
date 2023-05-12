@@ -9,11 +9,8 @@ import { Noto_Sans_Thai, Kanit } from 'next/font/google'
 
 // const inter = Inter({ subsets: ['latin'] })
 const kanit = Kanit({ weight: '400', subsets: ['latin'] })
-const noto_Sans_Thai = Noto_Sans_Thai({ weight: '400', subsets: ['latin'] })
-// export const metadata = {
-//   title: 'Rama 8',
-//   description: 'Rama 8',
-// }
+// const noto_Sans_Thai = Noto_Sans_Thai({ weight: '400', subsets: ['latin'] })
+
 
 const theme = createTheme({
   type: "light", // it could be "light" or "dark"
@@ -31,11 +28,9 @@ const myLightTheme = createTheme({
   type: 'dark',
   theme: {
     colors: {
-      // brand colors
       background: '#1c1c1c',
       text: 'white',
       bgColor: 'white',
-      // bgColorGradient: 'linear-gradient(112deg, $blue100 -25%, $pink500 -10%, $purple500 80%)',
       white: 'white',
       blue: '#392D4E',
       orange: '#FBBF4A',
