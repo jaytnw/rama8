@@ -46,6 +46,16 @@ const HeartIcon = ({
   );
 };
 
+function split(str) {
+  // https://github.com/nota/split-graphemes/blob/master/src/thai.js
+  const letter = '[\\u0E00-\\u0E7F]';
+  const trailingLetter = '[\\u0E31\\u0E33-\\u0E3A\\u0E47-\\u0E4E]';
+  const thai = `${letter}${trailingLetter}*`;
+  const splitter = new RegExp(`(${thai}|.)`, 'gui');
+
+  return str.replace(/ำ/g, 'ํา').replace(/แ/g, 'เเ').match(splitter) || [];
+};
+
 export default function Home() {
 
 
@@ -68,7 +78,6 @@ export default function Home() {
 
   const closeLight = useCallback(() => toggleLight(false), []);
   useClickOutside(popoverLight, closeLight);
-
 
   const handleTextChange = (e) => {
     setText(e.target.value);
@@ -276,18 +285,20 @@ export default function Home() {
         <div ref={imageRef} className="image-container" id="image-container">
           <img src="/rama8-img.png" height="100%" width="100%" />
 
-
-          <div className="overlay neonText"
+          <div
+            className="overlay neonText"
             style={{
               transform: `translate(${xAxis}px , ${yAxis}px)`,
               textShadow: `0 0 5px ${colorLight}, 0 0 15px ${colorLight}, 0 0 20px ${colorLight}, 0 0 40px ${colorLight}, 0 0 60px ${colorLight}, 0 0 10px ${colorLight}, 0 0 98px ${colorLight}`,
               color: color,
-              fontSize: fontSize
-            }}>
-            {text}
+              fontSize: fontSize,
+              textAlign: "center",
+            }}
+          >
+            {split(text).map((s, idx) => {
+              return <div key={idx}>{s}</div>
+            })}
           </div>
-
-
         </div>
       </Grid>
       {/* {xAxis}
